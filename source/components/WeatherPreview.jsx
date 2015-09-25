@@ -1,11 +1,21 @@
 var React = require('react');
 var WeatherStore = require('../stores/WeatherStore.js');
 var Reflux = require('reflux');
-
+/*
+    Component to show the weather icon, the weather blurb and current temperature.
+*/
 var WeatherPreview = React.createClass({
-
+    
+    /*
+        Using RefluxJS here to listen to the store being triggered.  Here, when the store changes, we
+        invoke the onWeatherChange method.
+    */
     mixins: [Reflux.listenTo(WeatherStore,"onWeatherChange")],
-
+    
+    /*
+        This is the initial state we want to set our app with on page load.  But we will also use this if 
+        the user enters invalid data.
+    */
     defaultState: {
         description: 'Honestly, we wish this was the correct zipcode',
         temperature: null,
@@ -13,11 +23,13 @@ var WeatherPreview = React.createClass({
         caption: ''
     },
 
-    //can also use this to preload items
     getInitialState: function(){
        return this.defaultState;
     },
-
+    
+    /*
+        Method gets invoked when store changes. See how we set this.state with the data from the Ajax call.
+    */
     onWeatherChange: function(data){
         var respCode = parseInt(data.cod, 10);
         if(respCode === 200){
@@ -32,7 +44,10 @@ var WeatherPreview = React.createClass({
             this.setState(this.defaultState);
         }
     },
-
+    
+    /*
+        Helper method to decide which icon to use
+    */
     setWeatherIcon: function(icon){
         var selectedIcon = '';
         switch(icon){
@@ -88,6 +103,11 @@ var WeatherPreview = React.createClass({
         return "weather-icon " + selectedIcon;
     },
 
+    /*
+        Render gets called this.state's value changes.  We don't have to invoke this manually. 
+        If you look at the code, you will observe that we display different views depending
+        on the logic.
+    */
     render: function(){
         if(this.state.temperature !== null){
             return(
