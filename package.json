@@ -1,0 +1,22 @@
+{
+  "name": "WeatherFinder",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babelify": "^6.3.0",
+    "browserify": "^11.1.0",
+    "gulp": "^3.9.0",
+    "react": "^0.13.3",
+    "reflux": "^0.2.12",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "zepto-browserify": "^1.1.6-1"
+  }
+}

@@ -1,0 +1,36 @@
+.zipcode-form{
+    margin-top: 20px;
+}
+
+.weather-icon{
+    width: 215px;
+    height: 205px;
+    display: block;
+    background: url(weather.png) 0 0 no-repeat;
+}
+
+.clear-day{ background-position: 0 -464px;}
+.clear-night{ background-position: -453px -495px;}
+.cloudy-day{ background-position: 11px 0;}
+.cloudy-night{ background-position: -685px -495px ;}
+.shower-rain{ background-position: -685px 0;}
+.rain{ background-position: -453px -246px;}
+.thunderstorm{ background-position: -220px -246px;}
+.snow{ background-position: -220px -495px;}
+.mist{ background-position: 11px -246px;}
+
+.description{
+    text-transform: capitalize;
+}
+
+.temperature{
+    font-size: 1.5em;
+}
+
+.caption{
+    margin-top: 50px;
+}
+
+.teaser{
+    font-size: 2em;
+}
